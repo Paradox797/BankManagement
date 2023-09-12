@@ -65,7 +65,7 @@
                     <!--                                <button type="button" id="closeButton" class="btn btn-secondary">Close</button>-->
                 </div>
                 <button type="button" id="closeButton" class="btn btn-secondary" style="display:none;">Close</button>
-                 <button type="button" id="print2" class="btn btn-secondary" style="display:none;">print</button>
+                <button type="button" id="print2" class="btn btn-secondary" style="display:none;">print</button>
 
             </div>
 
@@ -130,12 +130,38 @@
                         },
                         success: function (response) {
                             $("#result").html(response);
-                         
+
                             $("#f1").trigger("reset");
                             $("#f1").hide();
                             $("#result").show();
                             $("#closeButton").show();
                             $("#print2").show();
+                            
+                            $("#print2").click(function () {
+                                // Show the printable content and hide other elements
+                               // $("#f1").hide();
+                                $("#print2").hide();
+                                $("#closeButton").hide();
+
+                                // Create a new window for printing
+                                var printWindow = window.open('', '', 'width=600,height=600');
+                                printWindow.document.open();
+                                printWindow.document.write('<html><head><title>Print</title></head><body>');
+
+                                // Extract the content of #result from the original page
+                                var resultContent = $("#result").html();
+                                printWindow.document.write(resultContent);
+
+                                // Close the new window after printing
+                                printWindow.document.close();
+                                printWindow.print();
+                                printWindow.close();
+                                $("#result").show();
+                                $("#closeButton").show();
+                                $("#print2").show();
+                            });
+                            
+
                         },
                         error: function (xhr, status, error) {
                             $("#result").text("Error: " + error);
@@ -175,6 +201,34 @@
                             $("#result2").show();
                             $("#closeButton2").show();
                             $("#print").show();
+                            
+                            
+                             $("#print").click(function () {
+                                // Show the printable content and hide other elements
+                               // $("#f1").hide();
+                                $("#print").hide();
+                                $("#closeButton2").hide();
+
+                                // Create a new window for printing
+                                var printWindow = window.open('', '', 'width=600,height=600');
+                                printWindow.document.open();
+                                printWindow.document.write('<html><head><title>Print</title></head><body>');
+
+                                // Extract the content of #result from the original page
+                                var resultContent = $("#result2").html();
+                                printWindow.document.write(resultContent);
+
+                                // Close the new window after printing
+                                printWindow.document.close();
+                                printWindow.print();
+                                printWindow.close();
+                                $("#result2").show();
+                                $("#closeButton2").show();
+                                $("#print").show();
+                            });
+                            
+                            
+                            
                         },
                         error: function (xhr, status, error) {
                             $("#result2").text("Error: " + error);
