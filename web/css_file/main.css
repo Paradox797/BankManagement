@@ -8,6 +8,10 @@
     color: darkred;
 }
 
+.body {
+    font-family: "Your Bengali Font", sans-serif;
+}
+
 .circle {
     width: 40px;
     height: 40px;

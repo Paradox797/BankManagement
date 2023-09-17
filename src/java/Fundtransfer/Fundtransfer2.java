@@ -36,10 +36,14 @@ public class Fundtransfer2 extends HttpServlet {
 
                 out.println("<html><body>");
                 out.println("<h1>Customer Transactions Details</h1>");
+                // Define a CSS rule to right-align the content in the "Transaction Amount" column
+                out.println("<style>");
+                out.println(".right-align td:nth-child(3) {text-align: right;  padding-right:100px;}");/* 3 is the column index (0-based) */
+                out.println("</style>");
                 if (!resultSet.isBeforeFirst()) {
                     out.println("<h1>No transactions found for this account ID.</h1>");
                 } else {
-                    out.println("<table border='1'>");
+                    out.println("<table border='1' class='right-align'>");
                     out.println("<tr><th>Sender Account No</th><th>Receiver Account No</th><th>Transaction Amount</th><th>Transaction Date & Time</th></tr>");
 
                     while (resultSet.next()) {

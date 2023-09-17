@@ -64,7 +64,6 @@ public class Fundtransfer extends HttpServlet {
 
                             // Write the JavaScript script to the response
                             out.println(redirectScript);
-
                             return; // Ensure that the servlet stops processing
                         }
 
@@ -121,8 +120,7 @@ public class Fundtransfer extends HttpServlet {
                         insertTransactionStatement.setString(2, receiverAccountNo);
                         insertTransactionStatement.setDouble(3, sendingAmount);
                         insertTransactionStatement.executeUpdate();
-
-                        out.println("Transaction successful!");
+                        
                         out.println("Transaction successful!<br>");
                         out.println("Sender Account No: " + senderAccountNo + "<br>");
                         out.println("Receiver Account No: " + receiverAccountNo + "<br>");

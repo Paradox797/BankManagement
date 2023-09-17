@@ -60,7 +60,7 @@
 
 
 
-                <div id="result" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center;">
+                <div id="result" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
                     <p> Here all the details related to entered Customer ID.</p>
                     <!--                                <button type="button" id="closeButton" class="btn btn-secondary">Close</button>-->
                 </div>
@@ -136,21 +136,33 @@
                             $("#result").show();
                             $("#closeButton").show();
                             $("#print2").show();
-                            
+
                             $("#print2").click(function () {
                                 // Show the printable content and hide other elements
-                               // $("#f1").hide();
+                                // $("#f1").hide();
                                 $("#print2").hide();
                                 $("#closeButton").hide();
 
                                 // Create a new window for printing
+
                                 var printWindow = window.open('', '', 'width=600,height=600');
                                 printWindow.document.open();
                                 printWindow.document.write('<html><head><title>Print</title></head><body>');
-
+                                
+                                
+                                var Width = 600;
+                                var height = 600;
                                 // Extract the content of #result from the original page
                                 var resultContent = $("#result").html();
-                                printWindow.document.write(resultContent);
+
+                                // Wrap the content in a container div with a maximum width
+                                var wrappedContent = '<div style="width:' + Width + 'px" "height:' + height + 'px;">' + resultContent + '</div>';
+
+                                printWindow.document.write(wrappedContent);
+
+                                // Calculate and set the height of the new window based on the content
+//                                var contentHeight = $("#result").height();
+//                                printWindow.resizeTo(screen.width, contentHeight);
 
                                 // Close the new window after printing
                                 printWindow.document.close();
@@ -160,7 +172,7 @@
                                 $("#closeButton").show();
                                 $("#print2").show();
                             });
-                            
+
 
                         },
                         error: function (xhr, status, error) {
@@ -201,22 +213,26 @@
                             $("#result2").show();
                             $("#closeButton2").show();
                             $("#print").show();
-                            
-                            
-                             $("#print").click(function () {
+
+
+                            $("#print").click(function () {
                                 // Show the printable content and hide other elements
-                               // $("#f1").hide();
+                                // $("#f1").hide();
                                 $("#print").hide();
                                 $("#closeButton2").hide();
 
                                 // Create a new window for printing
-                                var printWindow = window.open('', '', 'width=600,height=600');
+                                var printWindow = window.open('', '', 'width=100%,height=auto');
                                 printWindow.document.open();
                                 printWindow.document.write('<html><head><title>Print</title></head><body>');
 
                                 // Extract the content of #result from the original page
                                 var resultContent = $("#result2").html();
                                 printWindow.document.write(resultContent);
+
+                                // Calculate and set the height of the new window based on the content
+                                var contentHeight = $("#result2").height();
+                                printWindow.resizeTo(screen.width, contentHeight);
 
                                 // Close the new window after printing
                                 printWindow.document.close();
@@ -226,9 +242,9 @@
                                 $("#closeButton2").show();
                                 $("#print").show();
                             });
-                            
-                            
-                            
+
+
+
                         },
                         error: function (xhr, status, error) {
                             $("#result2").text("Error: " + error);
