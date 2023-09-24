@@ -155,7 +155,7 @@
             if (previousTabName && tabAccessed[previousTabName]) {
                 var iframe = document.getElementById('pageFrame');
                 if (iframe) {
-                    iframe.src = `other_html_file/${nextTabName}.html`;
+                    iframe.src =  'other_html_file/' + nextTabName + '.html';
                     tabAccessed[nextTabName] = true;
                 } else {
                     console.error('Iframe element not found.');
