@@ -42,20 +42,20 @@ $(document).ready(function () {
             success: function (data) {
                 pageUrl = pageUrl.substring(pageUrl.lastIndexOf('/') + 1);
 
-                loadedTabs.push([{ pageUrl, data }]);
-               // console.log(data)
+                loadedTabs.push([{pageUrl, data}]);
+                // console.log(data)
                 localStorage.setItem('loadedTabs', JSON.stringify(loadedTabs));
 
                 //addTab(tabContentId, data);
                 addTab(pageUrl, data);
-                
+
             },
             error: function (xhr, status, error) {
                 console.error('Error:', error);
             }
         });
     });
-    
+
 //here all the previously loaded tabs are loaded again for showing them on screen  and all the page url are saved in local storage's loadedTabs named object and within that 
     function loadTabsFromlocalStorage() {
         if (Array.isArray(loadedTabs) && loadedTabs.length > 0) {
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 var data = loadedTabs[j][0].data;
                 console.log("loaded" + pageUrl); //here for loading also the addTab function is called.
                 addTab(pageUrl, data);
-                
+
             }
         } else {
             removeAllTabs();
@@ -77,13 +77,18 @@ $(document).ready(function () {
             'data-bs-toggle': 'tab',
             'role': 'tab',
             'aria-selected': true
-            //'aria-selected': false,
+                    //'aria-selected': false,
         }).text(tabContentId);// .text(x)--> x shows the tabs displayed title. 
 
-        var $tabClose = $('<button>').addClass('btn-close btn-sm').attr({
+//        var $tabClose = $('<button>').addClass('btn-close btn-sm').attr({
+//            'type': 'button',
+//            'aria-label': 'Close'
+//        }).css('color', 'red');
+        var $tabClose = $('<button>').addClass('btn btn-outline-danger btn-sm').attr({
             'type': 'button',
             'aria-label': 'Close'
-        }).css('color', 'red');
+        });
+
 
         var $tabLinkWrapper = $('<div>').addClass('col').append($tabLink);
         var $tabCloseWrapper = $('<div>').addClass('col-auto').append($tabClose);
@@ -97,7 +102,7 @@ $(document).ready(function () {
         }).html(content);
         $('#tabContent').append($tabPane);
 
-       // $tabLink.click();
+        // $tabLink.click();
 
 //        Tab Close function
         $tabClose.on('click', function () {
@@ -129,21 +134,20 @@ $(document).ready(function () {
 
                     console.log(2);
 
-                }
-                else if ($('#tabLinks').children().length === 1 && index === 0) {
+                } else if ($('#tabLinks').children().length === 1 && index === 0) {
                     removeAllTabs();
 
                     console.log(3);
 
-                }
-
-                else {
-                   var prevTabLink = $('#tabLinks').find('[href="#' + loadedTabs[prevIndex][0].pageUrl + '"]');
-                   // prevTabLink.tab('show');
+                } else {
+                    var prevTabLink = $('#tabLinks').find('[href="#' + loadedTabs[prevIndex][0].pageUrl + '"]');
+                    // prevTabLink.tab('show');
                     $tab.remove(); // Remove the tab and content from the DOM
                     $('#' + tabContentId).remove();
+//                    $(content).remove();
+                    $tabPane.remove();
                     prevTabLink.click();
-                    // prevTabLink.tab('show');
+                    prevTabLink.tab('show');
                     // $('#tabLinks').remove('[href="#' + loadedTabs[index][0].pageUrl + '"]');
                     //$(content).remove();
                     console.log(5);
@@ -152,7 +156,14 @@ $(document).ready(function () {
             }
 
         });
-     $tabLink.tab('show');
+
+        try {
+            $tabLink.tab('show');
+            // Your tab-related code here
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
+
     }
 
     function removeAllTabs() {

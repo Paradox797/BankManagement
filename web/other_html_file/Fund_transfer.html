@@ -12,101 +12,136 @@
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        
+        
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
 
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+
+            .column {
+                flex: 0 0 calc(33.33% - 20px);
+                margin-bottom: 20px;
+                background-color: #f0f0f0;
+                padding: 20px;
+                box-sizing: border-box;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            .column img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .column h2 {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            .column p {
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            #tabs {
+                background-color: #397785;
+                width: 100%;
+                float: left;
+                margin-top: 20px;
+            }
+            #fragment-1,
+            #fragment-2,
+            #fragment-3 {
+                background-color: #fff;
+                /*                padding: 5px;
+                                border-radius: 5px;
+                                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+                                max-width: 80%;*/
+            }
+
+            .button {
+                display: inline-block;
+                padding: 5px 5px;
+                font-size: 15px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                background-color: #81dccd;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 2px #999;
+            }
+
+            .button:hover {
+                background-color: #75afea;
+            }
+
+            .button:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+            .text-center{
+                background-color: white;
+                align-content: flex-end;
+                padding: 5px 5px;
+            }
+        </style>
 
     </head>
 
     <body>
 
-        <div id="tabs" style="background-color: #397785;width: 100%; float: left; margin-top: 50px;">
+        <div id="tabs" >
             <ul>
                 <li><a href="#fragment-1"><span>Transaction</span></a></li>
+                <li><a href="#fragment-3"><span>Generate FAC Tokens </span></a></li>
                 <li><a href="#fragment-2"><span>Transaction Details</span></a></li>
             </ul>
 
-            <!--            <div id="fragment-1" class="container">
-                            <div class="col-md-6">
-                                <div class="row mb-3">
-                                    <h2 style="color: white;">Transaction</h2>
-                                    <form id="f1" method="post">  
-                                        <div class="md-3">
-                                            <label for="SenderAccountNo" class="form-label" style="color: white">Sender Account number</label>
-                                            <input type="text" name="SenderAccountNo" class="form-control"  required>
-                                        </div>
-            
-                                        <div class="md-3">
-                                            <label for="ReceiverAccountNo" class="form-label" style="color: white">Receiver Account number</label>
-                                            <input type="text" name="ReceiverAccountNo" class="form-control"  required>
-                                        </div>
-            
-                                        <div class="md-3">
-                                            <label for="SendingAmount" class="form-label" style="color: white">Sending Amount: </label>
-                                            <input type="text" name="SendingAmount" class="form-control"  required>
-                                        </div>
-            
-                                        <div class="md-3">
-                                            <label for="password" class="form-label" style="color: white">password: </label>
-                                            <input type="text" name="Password" class="form-control"  required>
-                                        </div>
-            
-                                        <div class="text-center">
-                                            <button type="button" id="submitButton" class="btn btn-primary">
-                                                Submit
-                                            </button>
-            
-                                        </div>
-            
-                                    </form>
-                                </div> 
-                            </div>
-            
-            
-                            <div class="col-md-6">
-                                <h2 style="color: white;">Customer Details</h2>
-                                <div class=" row mb-3">
-                                    <label for="SendingAmount" class="form-label" style="color: white">Customers Account ID </label>
-                                </div>
-            
-                            </div>
-            
-            
-            
-            
-            
-            
-                            <div id="result" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
-                                <p> Here all the details related to entered Customer ID.</p>
-                                                                <button type="button" id="closeButton" class="btn btn-secondary">Close</button>
-                            </div>
-                            <button type="button" id="closeButton" class="btn btn-secondary" style="display:none;">Close</button>
-                            <button type="button" id="print2" class="btn btn-secondary" style="display:none;">print</button>
-            
-                        </div>-->
+            <div id="fragment-1" class="container" style=" background-color: #fff">
+                <div class="row" >
 
+                    <div class="col-md-8 gap-3" style="flex: 0 0 calc(63.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 60%;  height: auto"> <!-- First Part - Transaction -->
 
-            <div id="fragment-1" class="container">
-                <div class="row">
-                    <div class="col-md-6 gap-3"> <!-- First Part - Transaction -->
-                        <h2 style="color: white;">Transaction</h2>
                         <form id="f1" method="post">
                             <div class="row mb-3">
+                                <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
+                                    Transaction
+                                </span>
                                 <div class="col-md-6">
-                                    <label for="SenderAccountNo" class="form-label" style="color: white">Sender Account number</label>
-                                    <input type="text" name="SenderAccountNo" class="form-control" required>
+                                    <input type="text" name="SenderAccountNo" class="form-control" required placeholder="Sender Account number">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="ReceiverAccountNo" class="form-label" style="color: white">Receiver Account number</label>
-                                    <input type="text" name="ReceiverAccountNo" class="form-control" required>
+                                    <input type="text" name="ReceiverAccountNo" class="form-control" required placeholder="Receiver Account number">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="SendingAmount" class="form-label" style="color: white">Sending Amount: </label>
-                                    <input type="text" name="SendingAmount" class="form-control" required>
+                                    <input type="text" name="SendingAmount" class="form-control" required placeholder="Sending Amount">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="password" class="form-label" style="color: white">Password: </label>
-                                    <input type="text" name="Password" class="form-control" required>
+        
+                                    <input type="text" name="Password" class="form-control" required placeholder="Password">
                                 </div>
                             </div>
                             <div class="text-center">
@@ -114,11 +149,14 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-3 gap-4"> <!-- Second Part - Customer's Account ID -->
+                    <div class="col-md-4 gap-4" style="flex: 0 0 calc(37.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 100%; margin-left:20px ;height:60%"> <!-- Second Part - Customer's Account ID -->
                         <div class="row mb-3">
-                            <h2 style="color: white;">Customer's Details</h2>
+                            <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
+                                Customer's Details
+                            </span>
+
                             <div class="col-md-12">
-                                <label for="CustomerAccountId" class="form-label" style="color: white">Customer's Account ID</label>
+                                <label for="CustomerAccountId" class="form-label" style="color: black">Customer's Account ID</label>
                                 <!-- Input for Customer's Account ID can go here -->
                             </div>
                         </div>
@@ -138,25 +176,26 @@
 
 
             <div id="fragment-2" class="container">
-                <h2> Form 2</h2>
-                <p>Fill the form and submit it.</p>
-                <div style="margin:20px 0;"></div>
-                <div class="easyui-panel" title="New Topic" style="width:100%;max-width:400px;padding:30px 60px;">
+                <div class="col-md-8 gap-3" style="flex: 0 0 calc(63.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 60%;  height: auto"> <!-- First Part - Transaction -->
+
                     <form id="f2" method="post">
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" name="account_Id" style="width:100%;color: white"
-                                   data-options="label:'Name:',required:true" placeholder="Enter Account ID: ">
+                        <div class="row mb-3">
+                            <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
+                                Transaction
+                            </span>
+                            <div class="col-md-6">
+                                <label for="SenderAccountNo" class="form-label" style="color: black">Sender Account number</label>
+                                <input type="text" name="account_Id" class="form-control" style="width:100%;color: black" required placeholder="Enter Account ID: ">
+                            </div>
+
                         </div>
 
-
-                        <button type="button" id="submitButton2" class="btn btn-primary">
-                            Submit
-                        </button>
-
+                        <div class="text-center">
+                            <button type="button" id="submitButton2" class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
-
-
                 </div>
+
                 <div id="result2" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center;">
                     <p> Here all the details related to entered Customer ID.</p>
                     <!--                <button type="button" id="closeButton" class="btn btn-secondary">Close</button>-->
@@ -166,7 +205,80 @@
 
             </div>
 
+
+            <div id="fragment-3" class="container" style=" background-color: #fff">
+                <div class="row" >
+                    <div class="col-md-8 gap-3" style="flex: 0 0 calc(63.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 60%;  height: auto"> <!-- First Part - Transaction -->
+
+                        <form id="f1" method="post">
+                            <div class="row mb-3">
+                                <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
+                                    Transaction Details
+                                </span>
+                                <div class="col-md-6">
+
+                                    <input type="text" name="SenderAccountNo" class="form-control" required placeholder="Sender Account number">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+
+                                    <input type="text" name="Beneficiary Mobile No" class="form-control" required placeholder="Beneficiary Mobile No">
+                                </div>
+                                <div class="col-md-6">
+
+                                    <input type="text" name="Beneficiary Name" class="form-control" required placeholder="Beneficiary Name">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6"> 
+                                    <input type="text" name="Amount" class="form-control" required placeholder="Amount">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="Transaction Particulars" class="form-control" required placeholder="Transaction Particulars">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6"> 
+                                    <input type="text" name="Transaction Remarks" class="form-control" required placeholder="Transaction Remarks">
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 gap-4" style="flex: 0 0 calc(37.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 100%; margin-left:20px ;height:60%"> <!-- Second Part - Customer's Account ID -->
+                        <div class="row mb-3">
+                            <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
+                                Customer's Details
+                            </span>
+
+                            <div class="col-md-12">
+                                <label for="CustomerAccountId" class="form-label" style="color: black">Customer's Account ID</label>
+                                <!-- Input for Customer's Account ID can go here -->
+                            </div>
+                        </div>
+                        <!-- Add any other fields related to the second part of the form here -->
+                    </div>
+
+                    <div id="result" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
+                        <p> Here all the details related to the entered Customer ID.</p>
+                    </div>
+                    <button type="button" id="closeButton" class="btn btn-secondary" style="display:none;">Close</button>
+                    <button type="button" id="print2" class="btn btn-secondary" style="display:none;">Print</button>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="button" id="back" class="button">Back</button>
+                <button type="button" id="reset" class="button">Reset</button>
+                <button type="button" id="previous" class="button">Previous</button>
+            </div>
+
+
         </div>
+
 
         <script>
             (function ($) {
@@ -229,8 +341,8 @@
                                 printWindow.document.write(wrappedContent);
 
                                 // Calculate and set the height of the new window based on the content
-//                                var contentHeight = $("#result").height();
-//                                printWindow.resizeTo(screen.width, contentHeight);
+                                //                                var contentHeight = $("#result").height();
+                                //                                printWindow.resizeTo(screen.width, contentHeight);
 
                                 // Close the new window after printing
                                 printWindow.document.close();

@@ -2,7 +2,6 @@ package Billpay;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,17 +20,39 @@ public class BillpayServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/plain");
+        response.setContentType("text/html");
         try (PrintWriter out = response.getWriter()) {
-            String firstName = request.getParameter("firstName");
-            String middleName = request.getParameter("middleName");
-            String lastName = request.getParameter("lastName");
-            String passport = request.getParameter("passport");
-            String location = request.getParameter("location");
+            // Retrieve data from the data string 'customData'
+            String dataString = request.getParameter("st");
             
+            // Split the data into individual records
+            String[] records = dataString.split("\\|");
             
-             if (firstName.isEmpty()||middleName.isEmpty() || lastName.isEmpty() || passport.isEmpty() || location.isEmpty()) {
-                 
+            // Initialize variables to store field values
+            String firstName = "";
+            String middleName = "";
+            String lastName = "";
+            String passport = "";
+            String location = "";
+            
+            // Loop through the records and extract values for specific keys
+            for (String record : records) {
+                // Split each record into key-value pairs
+                String[] keyValue = record.split("=");
+                if (keyValue.length == 2) {
+                    String key = keyValue[0];
+                    String value = keyValue[1];
+                    switch (key) {
+                        case "firstName" -> firstName = value;
+                        case "middleName" -> middleName = value;
+                        case "lastName" -> lastName = value;
+                        case "passport" -> passport = value;
+                        case "location" -> location = value;
+                    }
+                }
+            }
+
+            if (firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() || passport.isEmpty() || location.isEmpty()) {
                 out.println("Error: All fields are required.");
                 return;
             }
@@ -41,13 +62,11 @@ public class BillpayServlet extends HttpServlet {
                 out.println("Error: Passport length must be at least 3 characters.");
                 return;
             }
-            //String id=request.getParameter("id");;
 
             try {
                 try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
-                    String insertQuery = "INSERT INTO billpay (firstName, middleName, lastName,passport,location) VALUES (?, ?, ?, ?, ?)";
+                    String insertQuery = "INSERT INTO billpay (firstName, middleName, lastName, passport, location) VALUES (?, ?, ?, ?, ?)";
                     PreparedStatement statement = conn.prepareStatement(insertQuery);
-                    // statement.setString(1, id);
                     statement.setString(1, firstName);
                     statement.setString(2, middleName);
                     statement.setString(3, lastName);
@@ -55,14 +74,11 @@ public class BillpayServlet extends HttpServlet {
                     statement.setString(5, location);
                     statement.executeUpdate();
                     out.println("<html><body>");
-                  
                     out.println("<h3>Successfully completed</h3>");
-                    
-                    // Retrieve the auto-generated ID
                     out.println("</body></html>");
                 }
             } catch (SQLException e) {
-                 e.printStackTrace();
+                e.printStackTrace();
                 out.println("Error: " + e.getMessage());
             }
         }

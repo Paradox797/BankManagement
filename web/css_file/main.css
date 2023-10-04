@@ -12,6 +12,22 @@
     font-family: "Your Bengali Font", sans-serif;
 }
 
+/*.nav-item.dropdown:hover .dropdown-menu {
+    position: static;
+    float: none;
+    display: none;
+    min-width: 100%;
+    top: auto;
+}
+
+.nav-item.dropdown:hover .dropdown-menu.show {
+    display: block;
+}
+
+.nav-item.dropdown .dropdown-menu {
+    display: block;
+    position: absolute;
+}*/
 .circle {
     width: 40px;
     height: 40px;

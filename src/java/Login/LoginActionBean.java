@@ -53,6 +53,7 @@ public class LoginActionBean extends org.apache.struts.action.ActionForm {
      * @return
      */
  
+    @Override
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         if (getUsername() == null || getUsername().length() < 1) {
