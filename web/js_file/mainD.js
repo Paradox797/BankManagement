@@ -72,19 +72,20 @@ $(document).ready(function () {
     }
 
     function addTab(tabContentId, content) {
-        var $tabLink = $('<a>').addClass('nav-link').attr({
+        var name = tabContentId.split('.')[0];
+        var $tabLink = $('<a>').addClass('nav-link tanD').attr({
             'href': '#' + tabContentId,
             'data-bs-toggle': 'tab',
             'role': 'tab',
             'aria-selected': true
                     //'aria-selected': false,
-        }).text(tabContentId);// .text(x)--> x shows the tabs displayed title. 
+        }).text(name);// .text(x)--> x shows the tabs displayed title. 
 
 //        var $tabClose = $('<button>').addClass('btn-close btn-sm').attr({
 //            'type': 'button',
 //            'aria-label': 'Close'
 //        }).css('color', 'red');
-        var $tabClose = $('<button>').addClass('btn btn-outline-danger btn-sm').attr({
+        var $tabClose = $('<button>').addClass('btn-close btn-close-white btn-sm').attr({
             'type': 'button',
             'aria-label': 'Close'
         });
@@ -94,6 +95,9 @@ $(document).ready(function () {
         var $tabCloseWrapper = $('<div>').addClass('col-auto').append($tabClose);
         var $tabRow = $('<div>').addClass('row g-0').append($tabLinkWrapper, $tabCloseWrapper);
         var $tab = $('<li>').addClass('nav-item').append($tabRow);
+
+
+       // var $tab = $('<li>').addClass('nav-item').append($tabLink, $tabClose);
 
         $('#tabLinks').append($tab);
         var $tabPane = $('<div>').addClass('tab-pane fade').attr({
