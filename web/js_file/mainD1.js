@@ -122,16 +122,16 @@ $(document).ready(function () {
                 }
             }
         });
-
-        $tabLink.on('click', function () {
-            $tabLink.tab('show'); // Show the tab when it's clicked
-            activeTab = $tabLink; // Update the activeTab variable
+        jQuery(function ($) {
+            $tabLink.on('click', function () {
+                $tabLink.tab('show'); // Show the tab when it's clicked
+                activeTab = $tabLink; // Update the activeTab variable
+            });
         });
-
-        if (!$('#tabLinks').children().length || activeTab === null) {
-            $tabLink.tab('show'); // Show the tab when it's added
-            activeTab = $tabLink; // Update the activeTab variable
-        }
+//        if (!$('#tabLinks').children().length || activeTab === null) {
+//            $tabLink.tab('show'); // Show the tab when it's added
+//            activeTab = $tabLink; // Update the activeTab variable
+//        }
     }
 
     function removeAllTabs() {

@@ -24,17 +24,17 @@ public class BillpayServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             // Retrieve data from the data string 'customData'
             String dataString = request.getParameter("st");
-            
+
             // Split the data into individual records
             String[] records = dataString.split("\\|");
-            
+
             // Initialize variables to store field values
             String firstName = "";
             String middleName = "";
             String lastName = "";
             String passport = "";
             String location = "";
-            
+
             // Loop through the records and extract values for specific keys
             for (String record : records) {
                 // Split each record into key-value pairs
@@ -43,11 +43,16 @@ public class BillpayServlet extends HttpServlet {
                     String key = keyValue[0];
                     String value = keyValue[1];
                     switch (key) {
-                        case "firstName" -> firstName = value;
-                        case "middleName" -> middleName = value;
-                        case "lastName" -> lastName = value;
-                        case "passport" -> passport = value;
-                        case "location" -> location = value;
+                        case "firstName" ->
+                            firstName = value;
+                        case "middleName" ->
+                            middleName = value;
+                        case "lastName" ->
+                            lastName = value;
+                        case "passport" ->
+                            passport = value;
+                        case "location" ->
+                            location = value;
                     }
                 }
             }
@@ -76,6 +81,11 @@ public class BillpayServlet extends HttpServlet {
                     out.println("<html><body>");
                     out.println("<h3>Successfully completed</h3>");
                     out.println("</body></html>");
+                    out.println("First Name: " + firstName + "<br>");
+                    out.println("Middle Name: " + middleName+ "<br>");
+                    out.println("Last Name: " + lastName + "<br>");
+                    out.println("Passport: " + passport+ "<br>");
+                    out.println("Location: " + location + "<br>");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -176,6 +176,6 @@ $(document).ready(function () {
         $('#tabLinks').empty();
         $('#tabContent').empty();
         localStorage.clear();
-        $('#tabContent').html(`<h1 class="nav-link" id="welcome">Welcome to our services.</h1>`);
+        $('#tabContent').html(`<h4 class="nav-link" id="welcome">Welcome to our services.</h4>`);
     }
 });

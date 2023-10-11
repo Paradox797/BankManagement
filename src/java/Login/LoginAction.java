@@ -60,6 +60,7 @@ public class LoginAction extends org.apache.struts.action.Action {
     //authentication process is done here.
         
          if (authenticateUser(loginForm.getUsername(), loginForm.getPassword())) {
+           //  System.out.println("arrived");
             // Redirect to success page
             return mapping.findForward("success");
         }else{

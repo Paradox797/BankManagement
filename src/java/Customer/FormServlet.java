@@ -22,21 +22,38 @@ public class FormServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/plain");
         try (PrintWriter out = response.getWriter()) {
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String address = request.getParameter("address");
+            String Amount = request.getParameter("Amount");
+            String  MobileNo = request.getParameter("MobileNo");
+            String PolicyNo = request.getParameter("PolicyNo");
+            String PurposeofPayment=request.getParameter("PurposeofPayment");
             //String id=request.getParameter("id");;
+            String TransactionParticular = request.getParameter("TransactionParticular");
+            String TransactionRemarks = request.getParameter("TransactionRemarks");
+            String Radio = request.getParameter("Radio");
 
             try {
                 Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-                String insertQuery = "INSERT INTO customers_form1 (name, email, address) VALUES (?, ?, ?)";
+                String insertQuery = "INSERT INTO customersdetails_form1 (Amount, MobileNo, PolicyNo,PurposeofPayment,TransactionParticular,TransactionRemarks,Radio) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 System.out.println("arrived");
                 PreparedStatement statement = conn.prepareStatement(insertQuery);
                // statement.setString(1, id);
-                statement.setString(1, name);
-                statement.setString(2, email);
-                statement.setString(3, address);
+                statement.setString(1,Amount );
+                statement.setString(2, MobileNo);
+                statement.setString(3, PolicyNo);
+                statement.setString(4,PurposeofPayment );
+                statement.setString(5, TransactionParticular);
+                statement.setString(6, TransactionRemarks);
+                statement.setString(7, Radio);
                 statement.executeUpdate();
+                
+                out.println("Successfully filled data for Insurance Premium Connection!<br>");
+                out.println("Amount: " + Amount + "<br>");
+                out.println("Mobile No: " + MobileNo + "<br>");
+                out.println("Policy No: " + PolicyNo + "<br>");
+                out.println("Purpose of Payment: " + PurposeofPayment + "<br>");
+                out.println(" Transaction Particular: " + TransactionParticular + "<br>");
+                out.println("Transaction Remarks: " + TransactionRemarks + "<br>");
+                out.println("Radio: " + Radio + "<br>");
 
                 // Retrieve the auto-generated ID
                 
