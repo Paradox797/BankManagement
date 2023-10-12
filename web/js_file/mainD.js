@@ -97,6 +97,8 @@ $(document).ready(function () {
         // var $tab = $('<li>').addClass('nav-item').append($tabLink, $tabClose);
 
         $('#tabLinks').append($tab);
+        
+        
         var $tabPane = $('<div>').addClass('tab-pane fade').attr({
             'id': tabContentId,
             'role': 'tabpanel'

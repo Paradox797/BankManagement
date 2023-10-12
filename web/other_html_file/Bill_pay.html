@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     </head>
@@ -16,7 +17,7 @@
 
         <div class="container">
             <h1 class="text-center mb-4">Personal Information Form</h1>
-            <form id="f1" method="post">
+            <form id="f4" method="post">
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <!--                                                            <label for="photo" class="form-label">Upload Photo</label>
@@ -39,43 +40,40 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-<!--                    <div class="col-md-6">
-                        <label for="dob" class="form-label">Date of Birth</label>
-                        <input type="date" name="Birth" class="form-control" id="dob" required>
-                    </div>-->
+                    <!--                    <div class="col-md-6">
+                                            <label for="dob" class="form-label">Date of Birth</label>
+                                            <input type="date" name="Birth" class="form-control" id="dob" required>
+                                        </div>-->
                     <div class="col-md-6">
                         <label for="passport" class="form-label">Passport Number</label>
                         <input type="text" name="passport" class="form-control" id="passport" required>
                     </div>
+
+                   
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="location" class="form-label">Location</label>
                         <input type="text" name="location" class="form-control" id="location" required>
                     </div>
+                     <div class="text-center">
+                        <button type="button"  id="submitButton4" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
 
                     <input type="hidden" name="customData" id="customData" value="">
                 </div>
 
-                <div class="text-center">
-                    <button type="button"  id="submitButton" class="btn btn-primary">
-                        Submit
-                    </button>
 
-                </div>
 
             </form>
 
-
-
-
-
-
-            <div id="result" style="display:none;">
+            <div id="result4" style="display:none;">
                 <p> Here all the details related to entered Customer ID.</p>
                 <!--                <button type="button" id="closeButton" class="btn btn-secondary">Close</button>-->
             </div>
-            <button type="button" id="closeButton" class="btn btn-secondary" style="display:none;">Close</button>
+            <button type="button" id="closeButton4" class="btn btn-secondary" style="display:none;">Close</button>
 
         </div>
 
@@ -136,12 +134,12 @@
                     }
                     // document.forms[0].customData.value = s;
                     console.log("print s: " + s);
-                   // alert(s);
+                    // alert(s);
                     return s;
 
                 }
 
-                $("#submitButton").click(function () {
+                $("#submitButton4").click(function () {
                     console.log("here");
 ////                $("#submitButton").click(function () {
 //                var firstName = $("input[name='firstName']").val();
@@ -150,7 +148,7 @@
 //                var passport = $("input[name='passport']").val();
 //                var location = $("input[name='location']").val();
 
-                    var st = setFieldsIncustomData("firstName", "middleName", "lastName","passport","location");
+                    var st = setFieldsIncustomData("firstName", "middleName", "lastName", "passport", "location");
 //                    setFieldsIncustomData("username", "location");
                     //var id = "2"; // You can set the ID value here
                     console.log(st);
@@ -165,29 +163,29 @@
 //                        location: location
 //                                // id: id
 //                    },
-                        data:{ st:st},
+                        data: {st: st},
 
                         success: function (response) {
-                            $("#result").html(response);
-                            $("#f1").trigger("reset");
-                            $("#f1").hide();
-                            $("#result").show();
-                            $("#closeButton").show();
+                            $("#result4").html(response);
+                            $("#f4").trigger("reset");
+                            $("#f4").hide();
+                            $("#result4").show();
+                            $("#closeButton4").show();
                         },
                         error: function (xhr, status, error) {
-                            $("#result").text("Error: " + error);
+                            $("#result4").text("Error: " + error);
                         }
                     });
 
                 });
 
 
-                $("#closeButton").click(function () {
+                $("#closeButton4").click(function () {
                     // Show the original form
-                    $("#f1").show();
+                    $("#f4").show();
                     // Hide the additional content
-                    $("#result").hide();
-                    $("#closeButton").hide();
+                    $("#result4").hide();
+                    $("#closeButton4").hide();
                 });
 
 

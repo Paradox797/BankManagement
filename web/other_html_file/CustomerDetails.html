@@ -4,12 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>tabs demo</title>
-
+ 
+         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -202,7 +203,7 @@
                 <div class="row" >
 
                     <div class="col-md-8 gap-3" style="flex: 0 0 calc(67.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 70%;  height: auto"> <!-- First Part - Transaction -->
-                        <form id="f1" method="post">
+                        <form id="f6" method="post">
                             <div class="row mb-3">
                                 <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
                                     Transaction Details
@@ -253,18 +254,18 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
+                                    <button type="button" id="submitButton6" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                
-                                <div id="result" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
+                                <div id="result6" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
                                     <p> Here all the details related to the entered Customer ID.</p>
                                 </div>
-                                <button type="button" id="closeButton" class="btn btn-secondary" style="display:none;">Close</button>
-                                <button type="button" id="print" class="btn btn-secondary" style="display:none;">Print</button>
+                                <button type="button" id="closeButton6" class="btn btn-secondary" style="display:none;">Close</button>
+                                <button type="button" id="print6" class="btn btn-secondary" style="display:none;">Print</button>
             </div>
 
 
@@ -272,7 +273,7 @@
                 <div class="row" >
 
                     <div class="col-md-8 gap-3" style="flex: 0 0 calc(67.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 70%;  height: auto"> <!-- First Part - Transaction -->
-                        <form id="f2" method="post">
+                        <form id="f7" method="post">
                             <div class="row mb-3">
                                 <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
                                     Credit Card
@@ -329,18 +330,18 @@
 
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" id="submitButton2" class="btn btn-primary">Submit</button>
+                                    <button type="button" id="submitButton7" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <div id="result2" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
+                <div id="result7" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
                     <p> Here all the details related to the entered Customer ID.</p>
                 </div>
-                <button type="button" id="closeButton2" class="btn btn-secondary" style="display:none;">Close</button>
-                <button type="button" id="print2" class="btn btn-secondary" style="display:none;">Print</button>
+                <button type="button" id="closeButton7" class="btn btn-secondary" style="display:none;">Close</button>
+                <button type="button" id="print7" class="btn btn-secondary" style="display:none;">Print</button>
             </div>
 
 
@@ -348,7 +349,7 @@
                 <div class="row" >
 
                     <div class="col-md-8 gap-3" style="flex: 0 0 calc(67.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 70%;  height: auto"> <!-- First Part - Transaction -->
-                        <form id="f3" method="post">
+                        <form id="f8" method="post">
                             <div class="row mb-3">
                                 <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
                                     Distributor Bill Collections
@@ -399,7 +400,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="button" id="submitButton3" class="btn btn-primary">Submit</button>
+                                    <button type="button" id="submitButton8" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -409,15 +410,15 @@
                 <div id="result3" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
                     <p> Here all the details related to the entered Customer ID.</p>
                 </div>
-                <button type="button" id="closeButton3" class="btn btn-secondary" style="display:none;">Close</button>
-                <button type="button" id="print3" class="btn btn-secondary" style="display:none;">Print</button>
+                <button type="button" id="closeButton8" class="btn btn-secondary" style="display:none;">Close</button>
+                <button type="button" id="print8" class="btn btn-secondary" style="display:none;">Print</button>
             </div>
 
             <div id="fragment-7" class="container" style=" background-color: #fff">
                 <div class="row" >
 
                     <div class="col-md-8 gap-3" style="flex: 0 0 calc(67.33% - 10px); background-color: #fff; padding:20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 70%;  height: auto"> <!-- First Part - Transaction -->
-                        <form id="f4" method="post">
+                        <form id="f9" method="post">
                             <div class="row mb-3">
                                 <span  style="padding: 15px 25px; font-size: large; font-weight: 550; background-color: rgba(122, 179, 245, 0.2); border-bottom: 2px solid rgb(184, 185, 185);">
                                     Institutional fee payment
@@ -563,18 +564,18 @@
 
 
                                 <div class="text-center">
-                                    <button type="button" id="submitButton4" class="btn btn-primary">Submit</button>
+                                    <button type="button" id="submitButton9" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <div id="result4" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
+                <div id="result9" style="display:none; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); max-width: 80%; justify-content: center; align-items: center; height: auto">
                     <p> Here all the details related to the entered Customer ID.</p>
                 </div>
-                <button type="button" id="closeButton4" class="btn btn-secondary" style="display:none;">Close</button>
-                <button type="button" id="print4" class="btn btn-secondary" style="display:none;">Print</button>
+                <button type="button" id="closeButton9" class="btn btn-secondary" style="display:none;">Close</button>
+                <button type="button" id="print9" class="btn btn-secondary" style="display:none;">Print</button>
             </div>
 
 
@@ -693,7 +694,7 @@
             //tab4
 
             $(document).ready(function () {
-                $("#submitButton").click(function () {
+                $("#submitButton6").click(function () {
                     var Amount = $("input[name='Amount']").val();
                     var MobileNo = $("input[name='MobileNo']").val();
                     var PolicyNo = $("input[name='PolicyNo']").val();
@@ -716,24 +717,24 @@
                             Radio: Radio        // id: id
                         },
                         success: function (response) {
-                            $("#result").html(response);
+                            $("#result6").html(response);
 
                             var formData = JSON.parse(localStorage.getItem('formData'));
                             delete formData['CustomerDetails.html']['f1']; // Clear tab 1 data
                             localStorage.setItem('formData', JSON.stringify(formData)); // Update local storage
 
 
-                            $("#f1").trigger("reset");
-                            $("#f1").hide();
-                            $("#result").show();
-                            $("#closeButton").show();
-                            $("#print").show();
+                            $("#f6").trigger("reset");
+                            $("#f6").hide();
+                            $("#result6").show();
+                            $("#closeButton6").show();
+                            $("#print6").show();
                             
-                             $("#print").click(function () {
+                             $("#print6").click(function () {
                                 // Show the printable content and hide other elements
                                 // $("#f1").hide();
-                                $("#print").hide();
-                                $("#closeButton").hide();
+                                $("#print6").hide();
+                                $("#closeButton6").hide();
 
                                 // Create a new window for printing
 
@@ -745,7 +746,7 @@
                                 var Width = 600;
                                 var height = 600;
                                 // Extract the content of #result from the original page
-                                var resultContent = $("#result").html();
+                                var resultContent = $("#result6").html();
 
                                 // Wrap the content in a container div with a maximum width
                                 var wrappedContent = '<div style="width:' + Width + 'px" "height:' + height + 'px;">' + resultContent + '</div>';
@@ -760,33 +761,33 @@
                                 printWindow.document.close();
                                 printWindow.print();
                                 printWindow.close();
-                                $("#result").show();
-                                $("#closeButton").show();
-                                $("#print").show();
+                                $("#result6").show();
+                                $("#closeButton6").show();
+                                $("#print6").show();
                             });
                             
                         },
                         error: function (xhr, status, error) {
-                            $("#result").text("Error: " + error);
+                            $("#result6").text("Error: " + error);
                         }
                     });
 
                 });
 
-              $("#closeButton").click(function () {
+              $("#closeButton6").click(function () {
                     // Show the original form
-                    $("#f1").show();
+                    $("#f6").show();
                     // Hide the additional content
-                    $("#result").hide();
-                    $("#closeButton").hide();
-                    $("#print").hide();
+                    $("#result6").hide();
+                    $("#closeButton6").hide();
+                    $("#print6").hide();
                 });
 
             });
         </script>
 
 
-        <script>
+<!--        <script>
             //tab2
 
             $(document).ready(function () {
@@ -884,7 +885,7 @@
                 });
 
             });
-        </script>
+        </script>-->
 
 
 
